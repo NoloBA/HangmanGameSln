@@ -7,9 +7,6 @@ namespace Hangman.Core.Game
         private GallowsRenderer _renderer;
         private string _guessProgress;
         private int _lives;
-        //private string letter;
-        //private string correctguessed;
-        //private int playerguess;
 
         public HangmanGame()
         {
