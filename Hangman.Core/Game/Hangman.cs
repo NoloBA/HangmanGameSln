@@ -25,10 +25,9 @@ namespace Hangman.Core.Game
             Console.WriteLine("--------------");
             Console.SetCursorPosition(0, 17);
             Console.ForegroundColor = ConsoleColor.Green;
-            //  Console.Write("_");
-            // var nextGuess = Console.ReadLine();
+
             Random random = new Random();
-            string[] wordList = new string[] { "Company", "words", "love", "computer", "house", "school", "playstore", "playstation", "laptop", "bread", "food", "typing", "reading", "water", "nap", "phone", "paper", "toilet", "table", "pen" };
+            string[] wordList = new string[] { "love", "patient", "kind", "peace", "gratitude", "happiness", "joy", "girl", "code", "seesharp", "like", "innovation", "lab", "samsung", "microsoft", "learn", "apple", "doctor", "sheldon", "cooper" };
             var index = random.Next(0, 19);
             string wordToGuess = wordList[index];
             char[] guess = wordToGuess.ToCharArray();
@@ -46,7 +45,6 @@ namespace Hangman.Core.Game
                 char playersGuess = char.Parse(Console.ReadLine());
                 char[] guessProgressArray = _guessProgress.ToCharArray();
 
-                //Console.SetCursorPosition(0, 17);
                 bool match = false;
                 for (int i = 0; i < guess.Length; i++)
                 {
@@ -66,7 +64,8 @@ namespace Hangman.Core.Game
                 {
                     _lives--;
                     _renderer.Render(5, 5, _lives);
-                  
+                    Console.WriteLine("You lost, try again...");
+
                 }
 
 
@@ -74,7 +73,7 @@ namespace Hangman.Core.Game
 
                 if (_guessProgress == wordToGuess)
                 {
-                    Console.WriteLine($"You won with {_lives} left.");
+                    Console.WriteLine($"You won with {_lives} lives left.");
 
 
                 }
